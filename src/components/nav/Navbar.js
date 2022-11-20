@@ -1,5 +1,10 @@
 import './Navbar.css'
+import { useState, useEffect } from 'react';
 const Navbar=()=>{
+
+  useEffect(()=>{
+    
+  }, [])
     return(
         <nav>
             <section>
