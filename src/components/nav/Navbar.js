@@ -2,11 +2,25 @@ import './Navbar.css'
 import { useState, useEffect } from 'react';
 const Navbar=()=>{
 
-  useEffect(()=>{
-    
-  }, [])
+  const [show, setShow] = useState(false);
+
+  const scrollHandler = () => {
+    if (window.scrollY > 10) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler);
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
     return(
-        <nav>
+        <nav  style={{
+          backgroundColor: show ? 'rgb(20,20,20)' : 'transparent',
+        }}>
             <section>
             <div className="nav-left">
                 <img className="nav-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="logo" />
